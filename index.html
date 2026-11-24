@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a10"><meta name="description" content="VAQORI — descoperă videoclipuri și creatori.">
+  <title>VAQORI — Video social</title><link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar"><a class="brand" href="#home">VAQORI<span>.</span></a><div class="top-actions"><button class="ghost" id="searchTop" aria-label="Caută">⌕</button><button class="avatar" id="profileTop" aria-label="Profil">V</button></div></header>
+  <main id="main">
+    <section class="page active" id="home">
+      <div class="feed-head"><span>Urmărești</span><strong>Pentru tine</strong></div>
+      <article class="video-card"><div class="video-art art-one"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="art-label">VAQORI <small>YOUR MOMENT</small></div><button class="play" aria-label="Redă">▶</button></div><div class="video-gradient"></div><div class="video-info"><div class="creator"><div class="mini-avatar">A</div><b>@alex.creator</b><button class="follow">Urmărește</button></div><p>Primul tău moment pe VAQORI ✨ #vaqori #fyp</p><small>♫ Sunet original — Alex</small></div><div class="video-tools"><button class="tool like"><span>♡</span><small>1.2k</small></button><button class="tool comment"><span>▢</span><small>Comentarii</small></button><button class="tool save"><span>☆</span><small>Salvează</small></button><button class="tool share"><span>↗</span><small>Distribuie</small></button></div></article>
+      <div class="feed-note">Ești la începutul fluxului. Glisează pentru următorul videoclip.</div>
+    </section>
+    <section class="page" id="discover"><div class="page-title">Descoperă</div><label class="searchbox"><span>⌕</span><input id="searchInput" placeholder="Caută creatori, videoclipuri, #hashtaguri"></label><div class="chips"><button class="chip selected">Pentru tine</button><button class="chip">Popular</button><button class="chip">Muzică</button><button class="chip">Sport</button></div><div class="discover-grid"><div class="tile tile-a"><b>#momente</b><small>Descoperă clipuri</small></div><div class="tile tile-b"><b>#creativitate</b><small>Idei noi</small></div><div class="tile tile-c"><b>#comunitate</b><small>Oameni noi</small></div><div class="tile tile-d"><b>#vaqori</b><small>Fii parte din început</small></div></div></section>
+    <section class="page" id="create"><div class="page-title">Publică un videoclip</div><div class="upload-box"><div class="upload-icon">＋</div><h2>Împărtășește momentul tău</h2><p>Alege un videoclip din telefon pentru previzualizare.</p><label class="primary-btn file-label">Alege videoclip<input type="file" id="videoFile" accept="video/*"></label><video id="preview" controls playsinline hidden></video><p class="muted" id="fileName">Previzualizarea este locală; publicarea online necesită conectarea contului și a stocării.</p></div><label class="caption-label">Descriere</label><textarea id="caption" placeholder="Scrie o descriere... #hashtag"></textarea><button class="primary-btn wide" id="publishBtn">Pregătește postarea</button><p class="muted" id="publishMsg"></p></section>
+
+    <section class="page" id="rooms">
+      <div class="page-title">Camere VAQORI <span class="live-pill">● LIVE</span></div>
+      <p class="muted">Intră într-o cameră, vezi membrii și trimite mesaje sau cadouri. În această versiune, datele sunt salvate local pe dispozitiv.</p>
+      <div class="room-list" id="roomList"></div>
+      <div class="room-create"><input id="newRoomName" maxlength="36" placeholder="Numele camerei tale"><button class="primary-btn" id="createRoomBtn">＋ Creează cameră</button></div>
+      <div class="room-stage" id="roomStage" hidden>
+        <div class="room-stage-head"><div><span class="live-pill">● CAMERĂ</span><h2 id="activeRoomTitle">Camera</h2><small id="activeRoomMembers" class="muted"></small></div><button class="outline-btn" id="leaveRoomBtn">Ieși</button></div>
+        <div class="room-members" id="roomMembers"></div>
+        <div class="room-chat" id="roomChat" aria-live="polite"></div>
+        <div class="gift-bar"><button class="outline-btn" id="emojiToggle">😊 Emoji</button><button class="outline-btn" id="giftToggle">🎁 Cadouri</button></div>
+        <div class="emoji-panel" id="emojiPanel" hidden><div class="emoji-panel-title">Alege un emoji sau cadou</div><div class="emoji-grid" id="emojiGrid"></div></div>
+        <form class="chat-compose" id="roomChatForm"><input id="roomMessage" maxlength="500" placeholder="Scrie un mesaj în cameră…" autocomplete="off"><button class="primary-btn" type="submit">Trimite</button></form>
+      </div>
+    </section>
+    <section class="page" id="messages">
+      <div class="page-title">Mesaje</div>
+      <p class="muted">Conversație demonstrativă pe acest dispozitiv. Pentru mesaje între conturi diferite trebuie activat backend-ul.</p>
+      <div class="dm-card"><div class="mini-avatar">V</div><div><b>Asistent VAQORI</b><small>Conversație de test</small></div></div>
+      <div class="dm-chat" id="dmChat" aria-live="polite"></div>
+      <form class="chat-compose" id="dmForm"><input id="dmInput" maxlength="500" placeholder="Scrie un mesaj…" autocomplete="off"><button class="primary-btn" type="submit">Trimite</button></form>
+      <div class="call-card"><div><b>Apel video 1 la 1</b><small>Test cameră și microfon pe acest dispozitiv</small></div><button class="primary-btn" id="startCallBtn">📹 Apel video</button></div>
+      <div class="call-panel" id="callPanel" hidden><div class="call-panel-head"><b id="callStatus">Pregătire apel</b><button class="outline-btn" id="endCallBtn">Închide</button></div><video id="localVideo" autoplay muted playsinline></video><p class="muted" id="callHelp">Permite accesul la cameră și microfon. Apelul cu altă persoană necesită conectarea serviciului de semnalizare.</p></div>
+    </section>
+    <section class="page" id="activity"><div class="page-title">Activitate</div><div class="empty-card"><div class="empty-icon">♧</div><h2>Totul începe aici</h2><p>Când cineva apreciază, comentează sau te urmărește, vei vedea notificările aici.</p></div></section>
+    <section class="page" id="profile"><div class="profile-head"><div class="profile-avatar">V</div><h2>Profilul tău</h2><p class="muted">@utilizator_vaqori</p><div class="stats"><div><b>0</b><small>Urmăritori</small></div><div><b>0</b><small>Urmărești</small></div><div><b>0</b><small>Aprecieri</small></div></div><button class="outline-btn" id="editProfile">Editează profilul</button></div><div class="profile-tabs"><b>▦ Videoclipuri</b><span>♡ Aprecieri</span></div><div class="empty-card compact"><p>Videoclipurile tale vor apărea aici.</p></div></section>
+  </main>
+  <nav class="bottom-nav"><button class="nav-item active" data-page="home"><span>⌂</span><small>Acasă</small></button><button class="nav-item" data-page="discover"><span>⌕</span><small>Descoperă</small></button><button class="nav-item add" data-page="create"><span>＋</span><small>Publică</small></button><button class="nav-item" data-page="rooms"><span>◉</span><small>Camere</small></button><button class="nav-item" data-page="messages"><span>✉</span><small>Mesaje</small></button><button class="nav-item" data-page="activity"><span>♡</span><small>Activitate</small></button><button class="nav-item" data-page="profile"><span>♙</span><small>Profil</small></button></nav>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="assets/app.js"></script>
+</body></html>
