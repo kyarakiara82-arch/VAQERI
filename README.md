@@ -1,0 +1,2 @@
+# VAQERI
+Aplicație VAQERI
